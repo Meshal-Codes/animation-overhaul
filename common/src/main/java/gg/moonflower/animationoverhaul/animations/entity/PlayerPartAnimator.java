@@ -20,12 +20,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.*;
+import gg.moonflower.animationoverhaul.util.GamemodeGrabber;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public class PlayerPartAnimator extends LivingEntityPartAnimator<Player, PlayerModel<Player>> {
+
+    public GamemodeGrabber gamemodeGrabber = new GamemodeGrabber();
+    public static Logger LOGGER = LogManager.getLogger();
 
     private Locator locatorMaster;
     private Locator locatorHead;
@@ -126,11 +132,17 @@ public class PlayerPartAnimator extends LivingEntityPartAnimator<Player, PlayerM
 
         boolean isCrouching = livingEntity.isCrouching();
         boolean isSprinting = livingEntity.isSprinting();
+        boolean isCreative = gamemodeGrabber.isCreative(livingEntity);
+        String playerName = gamemodeGrabber.getPlayerName(livingEntity);
+
+        //LOGGER.info(playerName + " is in creative: " + isCreative);
+
         if(isCrouching && isSprinting){
             isSprinting = false;
         }
         entityAnimationData.incrementInTicksFromCondition(SPRINT_WEIGHT, isSprinting, 10, 10);
         entityAnimationData.incrementInTicksFromCondition(CROUCH_WEIGHT, isCrouching, 8, 8);
+
 
         // Legacy direction shift
         float moveAngleX = -Mth.sin(livingEntity.yBodyRotO * Mth.PI / 180);
