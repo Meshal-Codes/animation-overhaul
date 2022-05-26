@@ -8,9 +8,10 @@ import net.lizistired.animationoverhaul.util.data.LivingEntityAnimatorRegistry;
 import gg.moonflower.pollen.api.platform.Platform;
 import gg.moonflower.pollen.api.registry.resource.ResourceRegistry;
 import gg.moonflower.pollen.pinwheel.api.client.render.TickableBlockRenderer;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.resource.ResourceType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
