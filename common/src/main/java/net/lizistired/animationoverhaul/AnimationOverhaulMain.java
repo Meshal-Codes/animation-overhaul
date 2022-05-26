@@ -1,7 +1,7 @@
 package net.lizistired.animationoverhaul;
 
-import gg.moonflower.animationoverhaul.util.config.AOConfig;
-import gg.moonflower.animationoverhaul.util.config.GamePaths;
+import net.lizistired.animationoverhaul.util.config.AOConfig;
+import net.lizistired.animationoverhaul.util.config.GamePaths;
 import gg.moonflower.pollen.pinwheel.api.client.render.BlockRendererRegistry;
 import net.lizistired.animationoverhaul.animations.entity.CreeperPartAnimator;
 import net.lizistired.animationoverhaul.animations.entity.PlayerPartAnimator;

@@ -1,6 +1,6 @@
-package gg.moonflower.animationoverhaul.util.config;
+package net.lizistired.animationoverhaul.util.config;
 
-import gg.moonflower.animationoverhaul.AnimationOverhaulMain;
+import net.lizistired.animationoverhaul.AnimationOverhaulMain;
 
 import java.nio.file.Path;
 

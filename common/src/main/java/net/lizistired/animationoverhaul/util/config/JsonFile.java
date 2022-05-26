@@ -1,4 +1,4 @@
-package gg.moonflower.animationoverhaul.util.config;
+package net.lizistired.animationoverhaul.util.config;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
