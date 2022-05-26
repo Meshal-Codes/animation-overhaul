@@ -3,18 +3,18 @@
   "id": "${id}",
   "version": "${version}",
   "name": "${name}",
-  "description": "This is an example starter template.",
+  "description": "A mod for Fabric and Forge that rewrites player animations!",
   "authors": [
-    "Moonflower"
+    "LizIsTired"
   ],
   "contributors": [
     "James Pelter (Trainguy)",
-    "Marvin Schürz (MineToBlend)"
+    "Marvin Schürz (MineToBlend)",
+    "Coffee"
   ],
   "contact": {
-    "homepage": "https://moonflower.gg",
-	"issues": "https://github.com/MoonflowerTeam/${repo}/issues",
-    "sources": "https://github.com/MoonflowerTeam/${repo}/"
+	"issues": "https://github.com/LizIsTired/animation-overhaul/issues",
+    "sources": "https://github.com/LizIsTired/animation-overhaul"
   },
   "license": "GPLv3",
   "environment": "*",
@@ -24,12 +24,12 @@
   ],
   "entrypoints": {
     "main": [
-      "gg.moonflower.animationoverhaul.core.fabric.AnimationOverhaulFabric"
+      "net.lizistired.animationoverhaul.core.fabric.AnimationOverhaulFabric"
     ]
   },
   "depends": {
     "fabric": "*",
-    "minecraft": "1.18.x",
-    "pollen": "1.x"
+    "minecraft": "1.18.2",
+    "pollen": ">=1.4.1"
   }
 }
