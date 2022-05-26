@@ -1,5 +1,6 @@
 package net.lizistired.animationoverhaul;
 
+import gg.moonflower.pollen.pinwheel.api.client.render.BlockRendererRegistry;
 import net.lizistired.animationoverhaul.animations.entity.CreeperPartAnimator;
 import net.lizistired.animationoverhaul.animations.entity.PlayerPartAnimator;
 import net.lizistired.animationoverhaul.render.*;
@@ -36,7 +37,7 @@ public class AnimationOverhaulMain {
 	public static void onClientInit() {
 		registerTimelineGroupLoader();
 		registerEntityAnimators();
-		//registerBlockRenderers();
+		registerBlockRenderers();
 	}
 
 	public static void onClientPostInit(Platform.ModSetupContext ctx) {
@@ -58,18 +59,18 @@ public class AnimationOverhaulMain {
 	}
 
 	private static void registerBlockRenderers(){
-		//registerBlockRenderer(new PressurePlateBlockRenderer(), PressurePlateBlockRenderer.PRESSURE_PLATES);
-		//registerBlockRenderer(new ButtonBlockRenderer(), ButtonBlockRenderer.BUTTONS);
-		//registerBlockRenderer(new TrapDoorBlockRenderer(), TrapDoorBlockRenderer.TRAPDOORS);
-		//registerBlockRenderer(new LeverBlockRenderer(), LeverBlockRenderer.LEVERS);
-		//registerBlockRenderer(new EndPortalFrameBlockRenderer(), EndPortalFrameBlockRenderer.END_PORTAL_BLOCKS);
-		//registerBlockRenderer(new ChainedBlockRenderer(), ChainedBlockRenderer.CHAINED_BLOCKS);
-		//registerBlockRenderer(new FloatingPlantBlockRenderer(), FloatingPlantBlockRenderer.FLOATING_PLANTS);
+		registerBlockRenderer(new PressurePlateBlockRenderer(), PressurePlateBlockRenderer.PRESSURE_PLATES);
+		registerBlockRenderer(new ButtonBlockRenderer(), ButtonBlockRenderer.BUTTONS);
+		registerBlockRenderer(new TrapDoorBlockRenderer(), TrapDoorBlockRenderer.TRAPDOORS);
+		registerBlockRenderer(new LeverBlockRenderer(), LeverBlockRenderer.LEVERS);
+		registerBlockRenderer(new EndPortalFrameBlockRenderer(), EndPortalFrameBlockRenderer.END_PORTAL_BLOCKS);
+		registerBlockRenderer(new ChainedBlockRenderer(), ChainedBlockRenderer.CHAINED_BLOCKS);
+		registerBlockRenderer(new FloatingPlantBlockRenderer(), FloatingPlantBlockRenderer.FLOATING_PLANTS);
 	}
 
 	private static void registerBlockRenderer(TickableBlockRenderer tickableBlockRenderer, Block[] blocks){
 		for(Block block : blocks){
-			//BlockRendererRegistry.register(block, tickableBlockRenderer);
+			BlockRendererRegistry.register(block, tickableBlockRenderer);
 		}
 	}
 }
