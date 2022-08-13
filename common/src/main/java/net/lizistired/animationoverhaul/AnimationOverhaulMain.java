@@ -10,6 +10,7 @@ import gg.moonflower.pollen.api.platform.Platform;
 import gg.moonflower.pollen.api.registry.resource.ResourceRegistry;
 import gg.moonflower.pollen.pinwheel.api.client.render.TickableBlockRenderer;
 import net.minecraft.block.Block;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.resource.ResourceType;
@@ -26,6 +27,7 @@ public class AnimationOverhaulMain {
 			.commonInit(AnimationOverhaulMain::onCommonInit)
 			.commonPostInit(AnimationOverhaulMain::onCommonPostInit)
 			.build();
+	public static MinecraftClient client;
 
 
 	public static Logger LOGGER = LogManager.getLogger();
@@ -38,6 +40,7 @@ public class AnimationOverhaulMain {
 		registerTimelineGroupLoader();
 		registerEntityAnimators();
 		registerBlockRenderers();
+		client = MinecraftClient.getInstance();
 	}
 
 	public static void onClientPostInit(Platform.ModSetupContext ctx) {
