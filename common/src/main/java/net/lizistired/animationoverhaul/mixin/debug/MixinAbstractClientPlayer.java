@@ -17,7 +17,7 @@ public class MixinAbstractClientPlayer {
 
     @Inject(method = "getCapeTexture", at = @At("HEAD"), cancellable = true)
     private void useDebugCapeTexture(CallbackInfoReturnable<Identifier> cir) {
-        if (AnimationOverhaulMain.getConfig().isEnableDebugCape()) {
+        if (net.lizistired.animationoverhaul.AnimationOverhaulMain.getConfig().isEnableDebugCape()) {
             cir.setReturnValue(debugCapeLocation);
         }
     }

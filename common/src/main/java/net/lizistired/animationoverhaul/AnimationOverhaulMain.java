@@ -21,6 +21,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class AnimationOverhaulMain {
+	private static AnimationOverhaulMain instance;
+	public static AnimationOverhaulMain getInstance() {
+		return instance;
+	}
+	public AnimationOverhaulMain() {
+		instance = this;
+	}
+	private static AOConfig config;
+	public static AOConfig getConfig() {
+		return config;
+	}
 
 
 	public static final String MOD_ID = "animation_overhaul";
