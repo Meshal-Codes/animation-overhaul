@@ -12,19 +12,23 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.client.render.Frustum;
+
+import static net.lizistired.animationoverhaul.AnimationOverhaulMain.client;
 
 public class AnimatorDispatcher {
     public static final AnimatorDispatcher INSTANCE = new AnimatorDispatcher();
 
     private final HashMap<UUID, EntityAnimationData> entityAnimationDataMap = Maps.newHashMap();
     private final HashMap<UUID, BakedPose> bakedPoseMap = Maps.newHashMap();
+    private final int distance = 2;
 
     public AnimatorDispatcher(){
     }
 
     public void tickEntity(LivingEntity livingEntity, LivingEntityPartAnimator<?, ?> livingEntityPartAnimator){
-        if(!entityAnimationDataMap.containsKey(livingEntity.getUuid())){
-            entityAnimationDataMap.put(livingEntity.getUuid(), new EntityAnimationData());
+        if(!entityAnimationDataMap.containsKey(livingEntity.getUuid())) {
+                entityAnimationDataMap.put(livingEntity.getUuid(), new EntityAnimationData());
         }
         livingEntityPartAnimator.tickMethods(livingEntity);
     }
@@ -33,8 +37,11 @@ public class AnimatorDispatcher {
         if(entityAnimationDataMap.containsKey(livingEntity.getUuid())){
             if(AnimationOverhaulMain.ENTITY_ANIMATORS.contains(livingEntity.getType())){
                 LivingEntityPartAnimator<T, M> livingEntityPartAnimator = (LivingEntityPartAnimator<T, M>) AnimationOverhaulMain.ENTITY_ANIMATORS.get(livingEntity.getType());
-                livingEntityPartAnimator.animate(livingEntity, entityModel, poseStack, entityAnimationDataMap.get(livingEntity.getUuid()), partialTicks);
-                return true;
+                if(livingEntity.distanceTo(client.player) <= (float)client.options.getViewDistance() / 2){
+                    livingEntityPartAnimator.animate(livingEntity, entityModel, poseStack, entityAnimationDataMap.get(livingEntity.getUuid()), partialTicks);
+                    return true;
+                }
+            return false;
             }
         }
         return false;
