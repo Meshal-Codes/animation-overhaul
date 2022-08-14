@@ -37,7 +37,7 @@ public class AnimatorDispatcher {
         if(entityAnimationDataMap.containsKey(livingEntity.getUuid())){
             if(AnimationOverhaulMain.ENTITY_ANIMATORS.contains(livingEntity.getType())){
                 LivingEntityPartAnimator<T, M> livingEntityPartAnimator = (LivingEntityPartAnimator<T, M>) AnimationOverhaulMain.ENTITY_ANIMATORS.get(livingEntity.getType());
-                if(livingEntity.distanceTo(client.player) <= (float)client.options.getViewDistance() / 2){
+                if(livingEntity.distanceTo(client.player) <= (float)client.options.getViewDistance() * 8){
                     livingEntityPartAnimator.animate(livingEntity, entityModel, poseStack, entityAnimationDataMap.get(livingEntity.getUuid()), partialTicks);
                     return true;
                 }
